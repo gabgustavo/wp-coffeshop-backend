@@ -1,4 +1,10 @@
 <?php
+
+add_filter('acf/settings/rest_api_format', function(){
+    //path &acf_format=standard
+    return 'standard';
+});
+
 function app_restapi_setup() {
     add_theme_support('post-thumbnails');
 }
@@ -23,7 +29,7 @@ function get_featured_image($post) {
     $images = [];
     foreach ($image_sizes as $size) {
         if($size === '2048x2048') continue;
-        
+
         $image = wp_get_attachment_image_src($post['featured_media'], $size);
         $images[$size === '1536x1536'? 'full': $size ] = [
             'size' => $size,
