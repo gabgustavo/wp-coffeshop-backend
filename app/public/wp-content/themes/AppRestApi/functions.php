@@ -11,7 +11,7 @@ function app_restapi_setup() {
 add_action('after_setup_theme', 'app_restapi_setup');
 
 function app_restapi_api_init() {
-    register_rest_field(['page', 'post'], 
+    register_rest_field(['page', 'post', 'product'], 
         'featured_image',
         [
             'get_callback' => 'get_featured_image'
